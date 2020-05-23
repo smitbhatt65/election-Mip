@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <link rel="stylesheet" href="{{ url_for('static',filename='homepage.css') }}">
+<style>
+  /* Font */
+
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+background: #4B79A1;
+background: -webkit-linear-gradient(to right,#052B3B,#145670,#228cb5);
+background: linear-gradient(to right, #052B3B,#145670,#228cb5);
+}
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color:#f5fffe;
+}
+
+.pro_img {
+  width: 100%;
+  height: 210px;
+  display: flex;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  background-color:#14c437;
+}
+
+.btn:hover {
+  color: white;
+  background-color:#0da13c;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 40%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 30%;}
+    h1 {
+    font-size: 34px;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, white 40%, #8ffff7 100%);;
+  margin-bottom: 10%;
+}
+
+.card_content {
+  padding: 1rem;
+
+}
+
+.card_title {
+  text-align: center;
+  font-size:2.1em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin-top:8%;
+}
+.card_title2
+{
+  text-align: center;
+  font-size:1.1em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  font-size:16px;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+</style>
+
+</head>
+<body>
+<br>
+<div class="main">
+  <h1>Vote Carefully</h1><br>
+  <ul class="cards">
+    {% for row in candidates%}
+    <li class="cards_item">
+      <div class="card">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px">
+                      <img src="{{row.12}}" class="pro_img">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px">
+              <div class="card_content">
+              <h2 class="card_title">{{row.1}} {{row.2}}</h2>
+              <h2 class="card_title2">{{row.9}} {{row.8}}</h2><br>
+              <a href="/voting_portal/{{row.0}}"class="btn card_btn" type="submit" role="button" onclick="return confirm('Are you sure you want to vote for this candidate?')">Vote</a>
+              </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </li>
+     {% endfor %}
+  </ul>
+</div>
+</body>
+</html>
+
+

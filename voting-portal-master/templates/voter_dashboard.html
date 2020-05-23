@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <link rel="stylesheet" href="{{ url_for('static',filename='homepage.css') }}">
+<style>
+  /* Font */
+
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+background: #4B79A1;
+background: -webkit-linear-gradient(to right,#052B3B,#145670,#228cb5);
+background: linear-gradient(to right, #052B3B,#145670,#228cb5);
+}
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color:#f5fffe;
+}
+
+.pro_img {
+  height: 250px;
+  margin-top: 4%;
+  margin-left:auto;
+  margin-right: auto;
+  display: block;
+ vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 40%;
+  }
+    .pro_img {
+  height: 300px;
+}
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;}
+    h1 {
+    font-size: 34px;
+  }
+  .pro_img {
+  height: 300px;
+}
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, #ccd8f0 40%, #8ffff7 100%);
+}
+
+.card_content {
+  padding: 1rem;
+
+}
+
+.card_title {
+  text-align: center;
+  font-size:2.1em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+.card_title2
+{
+  text-align: center;
+  font-size:1.1em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  font-size:16px;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+</style>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='university-logo.png') }}"  alt="university-logo" height="50px" width="200px" ></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right navst">
+        <li><a href="/voting_portal" ><span class="glyphicon glyphicon-inbox"></span>Voting Portal</a></li>
+        <li><a href="/voter_logout" ><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+
+        </ul>
+
+    </div>
+  </div>
+</nav>
+<br>
+<div class="main">
+  <h1>List of candidates participating in the elections</h1><br>
+  <ul class="cards">
+
+   {% for row in candidate%}
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="{{row.12}}" class="pro_img"></div>
+        <div class="card_content">
+          <h2 class="card_title">{{row.1}} {{row.2}}</h2>
+          <h4 class="card_title2">{{row.9}} {{row.8}}</h2><br>
+          <p class="card_text">{{row.11}}</p>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+
+  </ul>
+</div>
+</body>
+</html>
+
+

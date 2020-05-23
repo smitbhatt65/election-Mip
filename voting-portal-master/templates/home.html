@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <link rel="stylesheet" href="{{ url_for('static',filename='homepage.css') }}">
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='university-logo.png') }}"  alt="university-logo"
+                                            height="50px" width="200px" ></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right navst">
+        <li><a href="#" >Home</a></li>
+        <li><a href="/admin_login">Admin</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Voter<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/voter_register"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+            <li><a href="/voter_login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Candidate <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/candidate_register"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+            <li><a href="/candidate_login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </li>
+        </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="container darken-pseudo darken-with-text">
+<p>K.J. Somaiya College of engineering</p>
+<h2>Welcomes you !</h2><br>
+<h3><b>EVERY VOTE COUNTS !!</b><br>
+<div class="popup-flex">
+ <button id="popup-btn">Know More</button></h3>
+</div>
+
+<div id="popup-wrapper" class="popup-container">
+  <div class="popup-content">
+    <span id="close">&times;</span>
+    <p>These elections are for the General Secretary post of Student Council.Students who wish to apply for this post can register through Candidate registration tab.Voting will be done online and the dates will be announced soon.</p>
+  </div>
+</div>
+</div>
+
+
+<script>
+
+var popup = document.getElementById('popup-wrapper');
+var btn = document.getElementById("popup-btn");
+var span = document.getElementById("close");
+btn.onclick = function() {
+    popup.classList.add('show');
+}
+span.onclick = function() {
+    popup.classList.remove('show');
+}
+
+window.onclick = function(event) {
+    if (event.target == popup) {
+        popup.classList.remove('show');
+    }
+}
+</script>
+</body>
+</html>
+
+

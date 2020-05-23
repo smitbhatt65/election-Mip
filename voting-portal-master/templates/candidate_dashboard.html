@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <link rel="stylesheet" href="{{ url_for('static',filename='homepage.css') }}">
+     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <style >
+body {
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+background: #4B79A1;
+background: -webkit-linear-gradient(to right,#052B3B,#145670,#228cb5);
+background: linear-gradient(to right, #052B3B,#145670,#228cb5);
+}
+
+.box *:last-child {
+    margin-bottom: 0;
+}
+
+.box-4 {
+    box-shadow:  5px 10px 18px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 90%;
+    margin: 20px 0px 0px 20px;
+}
+
+.box-content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    background-color: #BDC9CD;
+    padding: 25px 30px 45px 30px;
+    position: relative;
+    font-size:1.3vw;
+    line-height: 1.8;
+    z-index: 1;
+}
+.box-4:after {
+    border-radius: 0 0 50% 50% / 0 0 20px 20px;
+    bottom: 0;
+    box-shadow: 0 10px 10px rgba(2, 59, 79, 0.5);
+    content: "";
+    height: 20px;
+    left: 10px;
+    position: absolute;
+    right: 10px;
+}
+.values
+{
+   width:60%;
+ border: 1px solid black;
+ background-color: #f5fcfc;
+
+}
+.top-buffer
+ { margin-top:15px; }
+ /* modal*/
+ /* The Modal (background) */
+ button{
+    border: none;
+    background:#092530;
+    color: #fff;
+    padding: 5px 30px;
+    border-radius: 5px;
+    font-size:16px;
+    cursor:pointer;
+    z-index: 1;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.profile{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 20%;
+  margin-bottom: 15%;
+ }
+
+/* Modal Content */
+.modal-content {
+    background-color:#BDC9CD;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    height:70%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+ /* modal*/
+  /* update profile and bio */
+
+*[role="form"] {
+  font-family:Arial, Helvetica, sans-serif;
+    padding: 15px;
+    margin: 0 auto;
+    color: #092530;
+    background-color: #BDC9CD;
+}
+
+*[role="form"] h3 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight:600;
+    color:#092530;
+    margin-top: 3%;
+    word-spacing: 0.5em;
+    text-align: center;
+
+
+}
+*[role="form"] button{
+background-color: #092530;
+width:200px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+color: white;
+margin-top: 200px;
+}
+*[role="form"] .b1{
+     margin-top: 100px;
+}
+
+
+
+*[role="form"] button:hover{
+    background-color:  #145670;
+    color: white;
+}
+textarea {
+resize:none;
+}
+
+  /* update profile and bio */
+
+@media screen and (max-width: 600px) {
+.box-content {
+    font-size:13px;
+    line-height: 1.8;
+    z-index: 1;
+}
+h2{
+  font-size:20px;
+}
+.modal-content {
+    width: 80%;
+    height:80%;
+}
+*[role="form"] button{
+margin-top: 20px;
+}
+*[role="form"] .b1{
+     margin-top: 5px;
+}
+.profile{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  height : 150px;
+ }
+  }
+ </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='university-logo.png') }}"  alt="university-logo" height="50px" width="200px" ></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right navst">
+        <li><a href="/candidate_logout" ><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+
+        </ul>
+
+    </div>
+  </div>
+</nav>
+<br>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <img class="profile" src="{{ candidate[0][12] }}"  alt="university-logo" height="400px" width="300px" >
+      <button class="myBtn_multi">Change Profile picture</button>
+          <!-- The Modal -->
+    <div class="modal modal_multi">
+
+        <!-- Modal content -->
+        <div class="modal-content" style="height: 60%">
+            <span class="close close_multi" style="color: #092530">×</span>
+            <form  role="form"  method="post" action="/update_profileimg" enctype="multipart/form-data">
+              <h3>CHANGE PROFILE PHOTO</h3>
+                <br>
+                <div class="form-group">
+
+                  <div class="col-sm-12">
+                       <input class="form-control" type="file" id="pro_photo" name="up_profile_img" style="height: 55px">
+                    </div>
+                </div>
+
+              <button type="submit" class="btn btn-default b1" >Submit</button>
+            </form> <!-- /form -->
+        </div>
+
+    </div><!-- The Modal -->
+    </div>
+    <div class="col-md-8 col-sm-18 col-xs-12">
+
+      <div class="box box-4">
+      <div class="box-content">
+        <h2 style="text-align: center;">Submitted Form</h2><br>
+          <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">Name</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values" >{{ candidate[0][1] }} {{ candidate[0][2] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Address</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][3] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Date of Birth</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][4] }} </div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Email </div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][5] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Phone no</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][6] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Gender</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][7] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Branch</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][8] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Current Year</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][9] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">CGPA</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][10] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Bio</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][11] }}</div>
+          </div>
+<!-- modal-->
+    <button class="myBtn_multi">Change bio</button>
+    <div  class="modal modal_multi">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close close_multi" style="color: #092530">×</span>
+            <form  role="form" method="post" action="/update_bio">
+              <h3>CHANGE BIO</h3>
+                <br>
+                <div class="form-group">
+
+                    <div class="col-sm-12">
+                        <textarea id="bio" rows="7"  placeholder="Why do you want to stand for the elections ?" class="form-control"
+                                  name="up_bio" autofocus></textarea>
+                    </div>
+                </div>
+
+              <button type="submit" class="btn btn-default" style="top:10%'" >Submit</button>
+            </form> <!-- /form -->
+        </div><!-- Modal content -->
+
+    </div>
+
+<!-- modal-->
+
+</div>
+</div>
+
+
+
+
+
+    </div><!-- closing 2nd half of main column row -->
+  </div><!-- closing main row -->
+</div><!-- closing 1st container -->
+
+    <script>
+        // Get the modal
+
+        var modalparent = document.getElementsByClassName("modal_multi");
+
+        // Get the button that opens the modal
+
+        var modal_btn_multi = document.getElementsByClassName("myBtn_multi");
+
+        // Get the <span> element that closes the modal
+        var span_close_multi = document.getElementsByClassName("close_multi");
+
+        // When the user clicks the button, open the modal
+        function setDataIndex() {
+
+            for (i = 0; i < modal_btn_multi.length; i++)
+            {
+                modal_btn_multi[i].setAttribute('data-index', i);
+                modalparent[i].setAttribute('data-index', i);
+                span_close_multi[i].setAttribute('data-index', i);
+            }
+        }
+
+
+
+        for (i = 0; i < modal_btn_multi.length; i++)
+        {
+            modal_btn_multi[i].onclick = function() {
+                var ElementIndex = this.getAttribute('data-index');
+                modalparent[ElementIndex].style.display = "block";
+            };
+
+            // When the user clicks on <span> (x), close the modal
+            span_close_multi[i].onclick = function() {
+                var ElementIndex = this.getAttribute('data-index');
+                modalparent[ElementIndex].style.display = "none";
+            };
+
+        }
+
+        window.onload = function() {
+
+            setDataIndex();
+        };
+
+        window.onclick = function(event) {
+            if (event.target === modalparent[event.target.getAttribute('data-index')]) {
+                modalparent[event.target.getAttribute('data-index')].style.display = "none";
+            }
+
+            // OLD CODE
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
+
+
+    </script>
+
+</body>
+</html>
+
+

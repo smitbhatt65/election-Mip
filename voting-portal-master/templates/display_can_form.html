@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <link rel="stylesheet" href="{{ url_for('static',filename='homepage.css') }}">
+     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <style >
+body {
+background: #4B79A1;
+background: -webkit-linear-gradient(to right,#052B3B,#145670,#228cb5);
+background: linear-gradient(to right, #052B3B,#145670,#228cb5);
+}
+
+.box *:last-child {
+    margin-bottom: 0;
+}
+
+.box-4 {
+    box-shadow:  5px 10px 18px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 90%;
+    margin: 20px 0px 0px 20px;
+}
+
+.box-content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    background-color: #BDC9CD;
+    padding: 25px 30px 45px 30px;
+    position: relative;
+    font-size:1.3vw;
+    line-height: 1.8;
+    z-index: 1;
+}
+.box-4:after {
+    border-radius: 0 0 50% 50% / 0 0 20px 20px;
+    bottom: 0;
+    box-shadow: 0 10px 10px rgba(2, 59, 79, 0.5);
+    content: "";
+    height: 20px;
+    left: 10px;
+    position: absolute;
+    right: 10px;
+}
+.values
+{
+   width:60%;
+ border: 1px solid black;
+ background-color: #f5fcfc;
+
+}
+.top-buffer
+ { margin-top:15px; }
+ /* modal*/
+ /* The Modal (background) */
+ button{
+    border: none;
+    background:#092530;
+    color: #fff;
+    padding: 5px 30px;
+    border-radius: 5px;
+    font-size:16px;
+    cursor:pointer;
+    z-index: 1;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.profile{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 20%;
+  margin-bottom: 15%;
+ }
+.btn{
+  font-size:1.3em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+@media screen and (max-width: 600px) {
+.box-content {
+    font-size:13px;
+    line-height: 1.8;
+    z-index: 1;
+}
+h2{
+  font-size:20px;
+}
+
+.profile{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  height : 190px;
+ }
+  }
+ </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='university-logo.png') }}"  alt="university-logo" height="50px" width="200px" ></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right navst">
+        <li><a href="/admin_dashboard" ><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+
+        </ul>
+
+    </div>
+  </div>
+</nav>
+<br>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <img class="profile" src="{{ candidate[0][12] }}"  alt="university-logo" height="400px" width="300px" >
+    </div>
+    <div class="col-md-8 col-sm-18 col-xs-12">
+
+      <div class="box box-4">
+      <div class="box-content">
+        <h2 style="text-align: center;">Submitted Form</h2><br>
+          <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">Name</div>
+
+            <div class="col-md-9 col-sm-9 col-xs-9 values" >{{ candidate[0][1] }} {{ candidate[0][2] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Address</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][3] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Date of Birth</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][4] }} </div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Email </div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][5] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Phone no</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][6] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Gender</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][7] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Branch</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][8] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Current Year</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][9] }}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">CGPA</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][10]}}</div>
+          </div>
+          <div class="row top-buffer">
+            <div class="col-md-3 col-sm-3 col-xs-3">Bio</div>
+            <div class="col-md-9 col-sm-9 col-xs-9 values">{{ candidate[0][11] }}</div>
+          </div><br>
+          <div class="row top-buffer">
+
+              <div class="col-md-2 col-sm-2 col-xs-2"></div>
+              <div class="col-md-4 col-sm-4 col-xs-4">
+              <a href="/accept/{{candidate[0][0]}}" class="btn btn-success btn-xs"data-toggle="modal" onclick="return confirm('Are you sure you want to verify this candidate?)" >Accept</a></div>
+
+              <div class="col-md-4 col-sm-4 col-xs-4">
+              <a href="/reject/{{candidate[0][0]}}" class="btn btn-danger btn-xs"onclick="return confirm('Are you sure you want to reject this candidate?)">Reject</a></div>
+              <div class="col-md-2 col-sm-2 col-xs-2"></div>
+
+          </div>
+
+
+</div>
+</div>
+
+
+
+
+
+    </div><!-- closing 2nd half of main column row -->
+  </div><!-- closing main row -->
+</div><!-- closing 1st container -->
+
+
+
+</body>
+</html>

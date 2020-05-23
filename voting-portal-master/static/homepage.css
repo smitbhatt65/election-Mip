@@ -1,0 +1,189 @@
+.navst li
+{
+	font-size: 20px;
+	padding: 15px;
+}
+
+.navbar-inverse {
+    background-color: #092530;
+    border-color:#092530;
+    margin: 0px;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color:black;
+    background-color:#b4e6fa;
+}
+
+.dropdown-menu>li>a:hover {
+   color:black;
+    background-color:#b4e6fa;
+}
+
+
+
+.container {
+  width:100%;
+  height: 600px;
+  background: url(https://www.localbizworld.com/wp-content/uploads/2018/12/kj-somaiya-college-of-engineering.jpg);
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto
+
+}
+
+.darken-pseudo {
+  position: relative;
+}
+
+.darken-pseudo:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.darken-with-text p {
+  margin: 0;
+  font-size:60px;
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+  position: relative;
+  z-index: 1;
+}
+.darken-with-text h2 {
+  margin: 0;
+  font-size:40px;
+  text-align: center;
+  color:white;
+  padding-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+.darken-with-text h3 {
+  margin: 0;
+  font-size:60px;
+  text-align: center;
+  background-color:rgba(180, 230, 250,0.6);
+  color:#092530 ;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+button{
+    border: none;
+    background:#092530;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size:20px;
+    cursor:pointer;
+    z-index: 1;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+.popup-flex{
+  margin:30px;
+}
+.popup-container {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.3);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(21, 17, 17, 0.61);
+    display: flex;
+    align-items: center;
+}
+.popup-content {
+    background-color:#c6e8f5;
+    margin: auto;
+    margin-top: 250px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+.popup-content p{
+    font-size: 20px;
+    padding: 10px;
+    line-height: 30px;
+}
+.popup-content span{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.popup-content span:hover,
+.popup-content span:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.show{
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.more-articles{
+  margin:30px 30px 50px;
+  font-size:20px;
+}
+.more-articles a{
+  margin:0 10px;
+  text-decoration:underline;
+}
+@media only screen and (max-width: 700px){
+.navst li
+{
+	font-size:15px;
+	padding:2px;
+
+}
+.navst a{
+	color: white;
+}
+img{
+	margin-top: auto;
+	height: 35px;
+	width: 180px;
+}
+.navbar-header
+{
+	height: 62px;
+}
+
+.darken-with-text p {
+font-size:35px;
+}
+.darken-with-text h2 {
+  font-size:25px;
+}
+.darken-with-text h3 {
+  font-size:35px;
+}
+.popup-content {
+    margin-top:60px;
+}
+.popup-content p{
+    font-size: 15px;
+    padding: 10px;
+    line-height: 28px;
+}
+}
+
+

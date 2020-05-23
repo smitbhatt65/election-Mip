@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+<style>
+body {
+background: #4B79A1;
+background: -webkit-linear-gradient(to right,#052B3B,#145670,#228cb5);
+background: linear-gradient(to right, #052B3B,#145670,#228cb5);
+}
+
+
+*[role="form"] {
+	font-family:Arial, Helvetica, sans-serif;
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.8em;
+    color: #145670;
+    background-color:white;
+}
+
+*[role="form"] h3 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight:600;
+    color:#092530;
+    margin-top: 3%;
+    word-spacing: 0.5em;
+    text-align: center;
+
+
+}
+*[role="form"] button{
+background-color: #092530;
+width:200px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+*[role="form"] button:hover{
+    background-color:  #145670;
+    color: white;
+}
+
+
+</style>
+
+<script>
+    pphotovalidation = () => {
+        const fi = document.getElementById('pro_photo');
+        // Check if any file is selected.
+        if (fi.files.length > 0) {
+            for (const i = 0; i <= fi.files.length - 1; i++) {
+
+                const fsize = fi.files.item(i).size;
+                const file = Math.round((fsize / 1024));
+                // The size of the file.
+                if (file >= 2048) {
+                    alert(
+                      "File too Big, please select a file less than 2mb");
+                      return false;
+                                }
+
+                 else {
+                    document.getElementById('size').innerHTML = '<b>'
+                    + file + '</b> KB';
+                    return true;
+                    }
+            }
+        }
+        }
+
+</script>
+
+<script>
+function formvalidation()
+{
+    var fname = document.forms["RegForm"]["fname"];
+    var lname = document.forms["RegForm"]["lname"];
+    var address = document.forms["RegForm"]["address"];
+    var birthdate = document.forms["RegForm"]["dob"];
+    var email = document.forms["RegForm"]["email"];
+    var phone = document.forms["RegForm"]["pno"];
+    var gender = document.forms["RegForm"]["gender"];
+    var branch = document.forms["RegForm"]["branch"];
+    var currentyear= document.forms["RegForm"]["cy"];
+    var cgpa=document.forms["RegForm"]["cgpa"];
+    var bio=document.forms["RegForm"]["bio"];
+    var profilephoto=document.forms["RegForm"]["profile_img"];
+    var password=document.forms["RegForm"]["password"];
+    var confirmpassword=document.forms["RegForm"]["confirm"];
+
+    if (fname.value == "")
+    {
+        window.alert("Please enter your first name.");
+        name.focus();
+        return false;
+    }
+         if (lname.value == "")
+    {
+        window.alert("Please enter your last name.");
+        name.focus();
+        return false;
+    }
+
+    if (address.value == "")
+    {
+        window.alert("Please enter your address.");
+        address.focus();
+        return false;
+    }
+    if (birthdate.value == "")
+    {
+        window.alert("Please enter your birth date.");
+        phone.focus();
+        return false;
+    }
+
+    if (email.value == "")
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+        if (phone.value == "")
+    {
+        window.alert("Please enter your telephone number.");
+        phone.focus();
+        return false;
+    }
+     if ((gender[0].checked == false ) && (gender[1].checked == false ) && (gender[2].checked == false ))
+    {
+        alert("Please select your gender.");
+        what.focus();
+        return false;
+    }
+    if (branch.selectedIndex < 1)
+    {
+        alert("Please enter your branch.");
+        what.focus();
+        return false;
+    }
+    if ((currentyear[0].checked == false ) && (currentyear[1].checked == false ) && (currentyear[2].checked == false ))
+    {
+        alert("Please select your current year.");
+        what.focus();
+        return false;
+    }
+        if (cgpa.value == "")
+    {
+        window.alert("Please enter your cgpa.");
+        name.focus();
+        return false;
+    }
+    if (bio.value == "")
+    {
+        window.alert("Please enter your bio.");
+        name.focus();
+        return false;
+    }
+    if (profilephoto.value == "")
+    {
+        window.alert("Please attach your profile picture.");
+        name.focus();
+        return false;
+    }
+
+    if (password.value == "")
+    {
+        window.alert("Please enter your password.");
+        name.focus();
+        return false;
+    }
+    if (password.value <4 && password.value>15)
+    {
+        window.alert("Minimum length of password should be 3 and Maximum length should be 15.");
+        name.focus();
+        return false;
+    }
+    if (confirmpassword.value == "")
+    {
+        window.alert("Please re-enter your pass.");
+        name.focus();
+        return false;
+    }
+    return true;
+}
+</script>
+
+<script type="text/javascript">
+    var valid = false;
+
+
+function valid_form()
+{
+    return valid;
+}
+</script>
+<script>
+
+            // Function to check Whether both passwords
+            // is same or not.
+            function checkPassword(form) {
+                password1 = form.password.value;
+                password2 = form.confirm_password.value;
+
+                // If password not entered
+                if (password1 == '')
+                    alert ("Please enter Password");
+
+                // If confirm password not entered
+                else if (password2 == '')
+                    alert ("Please enter confirm password");
+
+                // If Not same return False.
+                else if (password1 != password2) {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+
+                // If same return True.
+                else{
+                    alert("Password Match: password match:registered!")
+                    return true;
+                }
+            }
+        </script>
+</head>
+<body>
+<br><br><br>
+<div class="container">
+            <form class="form-horizontal" role="form" method="post" action="/add_candidate" enctype="multipart/form-data" name="RegForm" onsubmit="return formvalidation() && checkPassword(this)">
+                <h3>CANDIDATE  REGISTRATION</h3>
+                <br>
+                <div class="form-group">
+                    <label for="fname" class="col-sm-3 control-label">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="fname" placeholder="First Name" class="form-control" name="fname" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lname" class="col-sm-3 control-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lname" placeholder="Last Name" class="form-control" name="lname" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-3 control-label">Address</label>
+                    <div class="col-sm-9">
+                    	<textarea id="address" rows="3" placeholder="Address" class="form-control" name="address"autofocus></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bdate" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="bdate"  class="form-control" name="dob">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="xyz@somaiya.edu" class="form-control" pattern=".+@somaiya.edu" name= "email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+                    <div class="col-sm-9">
+                        <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control" name="pno">
+                        <span class="help-block">Your phone number won't be disclosed anywhere </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="femaleRadio" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input  type="radio" name="gender" id="maleRadio" value="Male">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio"  name="gender"  id="otherRadio" value="Other">Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                     <label for="branch" class="col-sm-3 control-label">Branch</label>
+                     <div class="col-sm-9">
+                        <select class="form-control" id="branch" name="branch" >
+                            <option>select branch</option>
+                            <option value="Comps">Comps</option>
+                            <option value="IT">IT</option>
+                            <option value="EXTC">EXTC</option>
+                            <option value="Etrx">Etrx</option>
+                            <option value="Mech">Mech</option>
+                        </select>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="control-label col-sm-3">Current Year</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="cy" id="fy" value="FY">FY
+                                </label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="cy" id="sy" value="SY">SY
+                                </label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="cy" id="ty" value="TY">TY
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                    <label for="cgpa" class="col-sm-3 control-label">CGPA </label>
+                    <div class="col-sm-9">
+                        <input type="number" step="0.01" min="0" max="10"  id="cgpa" placeholder="Last sem CGPA" class="form-control" name="cgpa">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bio" class="col-sm-3 control-label">Bio</label>
+                    <div class="col-sm-9">
+                        <textarea id="bio" rows="5" placeholder="Why do you want to stand for the elections ?"  maxlength="100" class="form-control"
+                                  name="bio" autofocus></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                	<label for="pro_photo" class="col-sm-3 control-label">Profile photo</label>
+                	<div class="col-sm-9">
+                       <input class="form-control" type="file" id="pro_photo" name="profile_img"accept=".jpg,.png"    value="UPLOAD IMAGE" onchange="return pphotovalidation()">
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label for="pwd1" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="pwd1" placeholder="Password" class="form-control" name="password" onkeyup="checkPass()" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd2" class="col-sm-3 control-label">Confirm Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="pwd2" placeholder="Re-enter Password" class="form-control" name="confirm_password" onkeyup="checkPass()" >
+                    </div>
+                </div>
+
+
+
+
+
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <p style="margin-left:190px;">Already registered ?? <a href="/candidate_login">Login</a></p>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+
+<br><br><br>
+</body>
+</html>
